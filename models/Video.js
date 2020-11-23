@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const videochema = new Schema({
+const videoSchema = new Schema({
   link: String, 
   owner: {
     type: Schema.Types.ObjectId,
@@ -10,5 +10,5 @@ const videochema = new Schema({
   rating: Number
 });
 
-const User = mongoose.model('Video', videoSchema);
+const Video = mongoose.model('Video', videoSchema);
 module.exports = Video;

@@ -24,6 +24,24 @@ router.get('/form', (req, res) => {
   res.render('auth/form');
 });
 
+
+router.post('/', (req, res, next) => {
+  const { link } = req.body;
+  Video.create({
+    link,
+    owner: req.user._id, 
+    rating: 0 
+  })
+    /* .then(video => {
+      res.redirect('/auth/videos') 
+    })*/ 
+    .catch(error => {
+      next(error);
+    })
+});
+
+
+
 router.get(
 
   "/google",
@@ -71,6 +89,7 @@ router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 })
+
 
 
 router.post('/signup', (req, res, next) => {
