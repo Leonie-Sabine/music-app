@@ -19,6 +19,7 @@ router.get('/videos', (req, res) => {
   res.render('auth/videos');
 });
 
+
 router.get('/form', (req, res) => {
   res.render('auth/form');
 });
@@ -61,7 +62,7 @@ router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login',
+    failureRedirect: '/auth/login',
     passReqToCallback: true
   })
 );
