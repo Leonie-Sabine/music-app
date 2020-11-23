@@ -148,5 +148,7 @@ app.use('/', index);
 const auth = require('./routes/auth');
 app.use('/auth', auth);
 
+const videos = require('./routes/videos');
+app.use('/', videos);
 
 module.exports = app;
