@@ -17,16 +17,15 @@ router.post('/', (req, res, next) => {
     owner: req.user._id, 
     rating: 0 
   })
-    /* .then(video => {
+     .then(video => {
       res.redirect('/auth/videos') 
-    })*/ 
+    })
     .catch(error => {
       next(error);
     })
 });
 
 /*
-
 router.get('/:id', (req, res) => {
   // an admin can delete any room 
   // a user can only delete a room that they created  
@@ -43,7 +42,6 @@ router.get('/:id', (req, res) => {
     .catch(err => {
       next(err);
     })
-
 }) */ 
 
 module.exports = router;

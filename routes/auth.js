@@ -14,7 +14,6 @@ router.get('/login', (req, res) => {
 
 });
 
-
 router.get('/videos', (req, res) => {
   res.render('auth/videos');
 });
