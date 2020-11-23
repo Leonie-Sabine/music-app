@@ -5,4 +5,36 @@ body {
 a {
   color: #00B7FF; }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center; }
+
+.btn {
+  background-color: #039dfc;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; }
+
+.label {
+  display: block;
+  font: 1rem 'Fira Sans', sans-serif; }
+
+.input
+label {
+  margin: .4rem 0; }
+
+.add {
+  display: flex;
+  justify-content: center;
+  margin: auto; }
+
 /*# sourceMappingURL=style.css.map */

@@ -15,6 +15,14 @@ router.get('/login', (req, res) => {
 });
 
 
+router.get('/videos', (req, res) => {
+  res.render('auth/videos');
+});
+
+router.get('/form', (req, res) => {
+  res.render('auth/form');
+});
+
 router.get(
 
   "/google",
