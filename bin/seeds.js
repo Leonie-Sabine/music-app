@@ -9,17 +9,20 @@ mongoose.connect('mongodb://localhost/Videos', {
 
 const videos = [
   {
-      link: "http://",
-      user: "xyz",
+      link: "https://youtu.be/CDK1r39lPWA", 
+      user: "Supererbin",
       rating: 0 
     
   },
   {
-    link: "http://",
-    user: "zyx", 
+    link: "https://youtu.be/yQ3BfMUnCOk", 
+    user: "5fbbc0a21a72401cc7280485", 
     rating: 0 
   },
   
+{ link: "https://youtu.be/HH5WtUPrgPc", 
+user: "Psymon Spine", 
+rating: 0}
 ];
 
 
