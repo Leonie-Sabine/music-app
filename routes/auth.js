@@ -15,6 +15,8 @@ router.get('/login', (req, res) => {
 });
 
 
+
+
 router.get(
 
   "/google",
@@ -49,14 +51,17 @@ router.get(
 
 
 
-router.post(
+ router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login',
-    passReqToCallback: true
+    failureRedirect: '/auth/login',  
+    passReqToCallback: true,
   })
-);
+
+ ); 
+
+
 
 router.get('/logout', (req, res) => {
   req.logout();
