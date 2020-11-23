@@ -6,7 +6,8 @@ const videochema = new Schema({
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }
+  }, 
+  rating: Number
 });
 
 const User = mongoose.model('Video', videoSchema);

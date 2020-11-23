@@ -40,7 +40,6 @@ router.get(
   passport.authenticate("google", {
 
     successRedirect: "/",
-    console.log(userinfo); 
 
     failureRedirect: "/login" // here you would redirect to the login page using traditional login approach
 
