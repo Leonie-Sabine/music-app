@@ -1,11 +1,17 @@
-<h1>Add a Video</h1>
 
-<form action="/" method="POST">
+<div class="container">
+{{!-- <h1>Add a Video to our Database!</h1> --}}
 
-  <label for="link">Enter a URL:</label>
+  <div class="add-form">
+  <form action="/" method="POST">
 
-<input type="url" name="link" id="link" placeholder="https://example.com" pattern="https://.*" size="30" required>
+  <label for="link">Add your Youtube URL: 📺</label>
+  <br>
+  <br>
+  <input type="url" name="link" id="link" placeholder="https://example.com" pattern="https://.*" size="50" required>
+  <br>
+  <button class="btn-1"type="submit">Add a Video</button>
 
-<button type="submit">Add a Video</button>
-
-</form>
+  </form>
+  </div>
+</div>

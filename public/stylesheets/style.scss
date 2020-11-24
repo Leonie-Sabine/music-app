@@ -1,25 +1,45 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  // background: #EAE4DC;
+  background: white;
+
 }
+
 
 a {
   color: #00B7FF;
 }
 
 .container {
-  
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
     align-content: center;
+    
+  }
+
+  .container-index {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+
+    // background-image: url('/images/youtube-icon.png');
+    // background-size: 500px 300px;
+    // background-repeat: no-repeat;
+    // background-position: center;    
+    // background-color: rgba(255, 255, 255, 0.5);    
   }
 
 
 .btn {
-    background-color: #039dfc; 
+    background-color: #9F84DB; 
     border-radius: 5px;
     border: none;
     color: white;
@@ -28,6 +48,11 @@ a {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+
+  .btn:hover {
+    background-color: #ae93e9;
+  
   }
 
 .label {
@@ -40,8 +65,36 @@ label {
     margin: .4rem 0;
 }
 
-.add {
-  display: flex;
-  justify-content: center;
-  margin: auto;
+
+.btn-1 {
+  background-color: #C09BD8; 
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
 }
+.btn-1:hover {
+  background-color: #ceaee2;
+
+}
+
+.add-form{
+ background-color: #f1eeea;
+ border: 0.5px solid black;
+ border-radius: 15px;
+ padding: 30px;
+ text-align: center;
+
+}
+
+.sign-up-class{
+text-align: center;
+padding: 10px;
+}
+
+

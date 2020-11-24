@@ -24,8 +24,6 @@ router.get('/videos', (req, res) => {
 router.get('/form', (req, res) => {
   res.render('auth/form');
 });
-
-
 router.post('/', (req, res, next) => {
   const { link } = req.body;
   Video.create({

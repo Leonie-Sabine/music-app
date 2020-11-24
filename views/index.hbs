@@ -1,21 +1,36 @@
 
-
-  {{#if user}}
-   
-  <h1>Welcome</h1>
-
-  <a href="/videos">Go to Videos</a>
+   <div class="container-index">
   
-  {{/if}} 
+    <div class ='container'>
+    {{#if user}}
+    <h1>Welcome! ✨</h1>
+
+    <a class="btn-1" href="/videos"> ➡ Random videos</a>
+
+  
+    <a class="btn-1" href="/auth/myvideos"> My Videos</a>
+
+
+    
+    {{/if}} 
 
 
 
-{{#unless user}}
-<h1> Welcome! Please </h1>
-<a href="/auth/login">Log in</a>
-<a href="/auth/signup">Sign up</a>
-{{else}}
-<a href="/auth/logout">Log out</a>
-<br>
-{{/unless}}
+  {{#unless user}}
+  <h1>Welcome! ✨</h1>
+
+  <br> 
+  <br>
+  <a class="btn-1" href="/auth/login">Log in</a>
+  <br> 
+  <br>
+  <a class="btn-1" href="/auth/signup">Sign up</a>
+  {{else}}
+  <br>
+  <a class="btn-1" href="/auth/logout">Log out</a>
+  <br>
+  {{/unless}}
+
+  </div>
+</div>
 
