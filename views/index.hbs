@@ -1,11 +1,11 @@
 
 
-  {{#if user}}
+ {{#if user}} 
    
   <div class="container">
   <h1>Videos</h1>
 <div class="video">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4FTsx61SgRg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="{{randomlink}}" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <div class="buttons">
@@ -18,16 +18,16 @@
 
 </div>
   
-  {{/if}}
+ {{/if}} 
 
 
 
-{{#unless user}}
+ {{#unless user}}
 <h1> Welcome! Please </h1>
 <a href="/auth/login">Log in</a>
 <a href="/auth/signup">Sign up</a>
 {{else}}
 <a href="/auth/logout">Log out</a>
 <br>
-{{/unless}}
+{{/unless}} 
 

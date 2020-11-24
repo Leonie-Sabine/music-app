@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
     rating: 0 
   })
     .then(video => {
-      res.redirect('/auth/videos') 
+      res.redirect('/auth/myvideos') 
     })
     .catch(error => {
       next(error);
@@ -53,16 +53,16 @@ router.get("/rating", (req, res, next) => {
 
 
 
-router.get('/videos', (req, res) => {
-  // get all the books from the database
+router.get('/', (req, res) => {
+ 
   Video.find().then(videos => {
-   // console.log(videos); 
+   console.log(videos); 
     let arrlinks = videos.map(video => {
      return video.link;
      } )
     const randomIndex = Math.floor(Math.random() * arrlinks.length);
     const embeddedVideo = getId(arrlinks[randomIndex]);
-    res.render('videos', 
+    res.render('index', 
     { videoList: videos, randomlink:  "//www.youtube.com/embed/" + embeddedVideo })
   }).catch(err => {
     console.log(err);
