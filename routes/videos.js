@@ -13,6 +13,9 @@ function getId(url) {
     : null;
 }; 
   
+router.get('/auth/myvideos', loginCheck(), (req, res) => {
+  res.render('auth/myvideos');
+}); 
 
 
 

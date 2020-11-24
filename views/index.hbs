@@ -2,16 +2,18 @@
 
   {{#if user}}
    
-  <h1>Welcome</h1>
+  <h1>Welcome to the music app!</h1>
 
-  <a href="/videos">Go to Videos</a>
+  <h2>   
+  <a href="/videos"> -> Go to Videos</a>
+  </h2>
   
   {{/if}} 
 
 
 
 {{#unless user}}
-<h1> Welcome! Please </h1>
+<h1> Welcome to the music app! </h1>
 <a href="/auth/login">Log in</a>
 <a href="/auth/signup">Sign up</a>
 {{else}}
