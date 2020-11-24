@@ -20,6 +20,7 @@ router.get('/videos', (req, res) => {
 });
 
 
+/* 
 router.get('/form', (req, res) => {
   res.render('auth/form');
 });
@@ -32,13 +33,13 @@ router.post('/', (req, res, next) => {
     owner: req.user._id, 
     rating: 0 
   })
-    /* .then(video => {
+     .then(video => {
       res.redirect('/auth/videos') 
-    })*/ 
+    }) 
     .catch(error => {
       next(error);
     })
-});
+}); */ 
 
 
 
