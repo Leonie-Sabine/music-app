@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Video = require('../models/Video');
 
-/* GET home page 
+/* // GET home page 
 router.get('/', (req, res, next) => {
   // passport syntax: req.user to get the logged in user
   console.log(req.user);
@@ -19,10 +19,10 @@ function getId(url) {
     : null;
 }; 
 
+
+
+
 router.get('/', (req, res, next) => {
-// passport syntax: req.user to get the logged in user
-console.log(req.user);
-res.render('index', { user: req.user })
 
   Video.find().then(videos => {
    console.log(videos); 
@@ -32,11 +32,12 @@ res.render('index', { user: req.user })
     const randomIndex = Math.floor(Math.random() * arrlinks.length);
     const embeddedVideo = getId(arrlinks[randomIndex]);
     res.render('index', 
-    { videoList: videos, randomlink:  "//www.youtube.com/embed/" + embeddedVideo })
+    { user: req.user, randomlink:  "//www.youtube.com/embed/" + embeddedVideo })
   }).catch(err => {
     console.log(err);
   })
-});
+}); 
+
 
 
 module.exports = router;

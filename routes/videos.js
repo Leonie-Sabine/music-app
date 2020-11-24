@@ -62,7 +62,7 @@ router.get('/', (req, res) => {
      } )
     const randomIndex = Math.floor(Math.random() * arrlinks.length);
     const embeddedVideo = getId(arrlinks[randomIndex]);
-    res.render('index', 
+    res.render('videos', 
     { videoList: videos, randomlink:  "//www.youtube.com/embed/" + embeddedVideo })
   }).catch(err => {
     console.log(err);
