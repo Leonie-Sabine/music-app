@@ -1,11 +1,18 @@
+
+  <nav class='nav'>
+     <a class="nav-1" href="/videos"> Random videos</a>
+     <a class="nav-1" href="/auth/myvideos">My Videos</a>
+     <a class="nav-1" href="/auth/form">Add a Video</a>
+</nav>
+
 <div class="container">
 <h1>My Videos</h1>
 
  <div class="video">
-{{!-- {{#each videoList}} --}}
-  <iframe width="560" height="315" src="{{myVideo}}" 
+{{#each ownedVideos}}
+  <iframe width="560" height="315" src="{{link}}" 
   frameborder="0" allowfullscreen></iframe>
-{{!-- {{/each}} --}}
+{{/each}}
 </div>
 
 
@@ -13,3 +20,4 @@
 <a class="btn-1" href="/videos">Random videos</a>
 
 </div>
+
