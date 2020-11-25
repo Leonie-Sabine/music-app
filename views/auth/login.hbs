@@ -1,3 +1,5 @@
+
+<div class="container">
 <h1>Login</h1>
 <form action="/auth/login" method="POST">
 
@@ -9,9 +11,11 @@
 
   <button type="submit">Log In </button>
 </form>
-
-<a href="/auth/google">Log in with Google</a>
+<br>
+<a class='btn-1' href="/auth/google">Log in with Google </a>
 
 {{#if message}}
   <p style="color: red">{{message}}</p>
 {{/if}}
+
+</div>

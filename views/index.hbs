@@ -1,23 +1,38 @@
 
-
-  {{#if user}}
-   
-  <h1>Welcome to the music app!</h1>
-
-  <h2>   
-  <a href="/videos"> -> Go to Videos</a>
-  </h2>
+   <div class="container-index">
   
-  {{/if}} 
+    <div class ='container'>
+    {{#if user}}
+    <h1>Welcome! ✨</h1>
+
+    <img class="img-1" src='/images/youtube-icon.png'>
+
+
+    <div class='index-btn'>
+    <a class="btn-1" href="/videos">  Random videos</a>
+    <a class="btn-1" href="/auth/myvideos"> My Videos</a>
+    </div>
+
+    
+    {{/if}} 
 
 
 
-{{#unless user}}
-<h1> Welcome to the music app! </h1>
-<a href="/auth/login">Log in</a>
-<a href="/auth/signup">Sign up</a>
-{{else}}
-<a href="/auth/logout">Log out</a>
-<br>
-{{/unless}}
+  {{#unless user}}
+  <h1>Welcome! ✨</h1>
+  <h3>Login or Sign-Up to discover a new 
+    <br>music Video by a new artist.</h3>
+
+  <div>
+  <br> 
+  <a class="btn-1" href="/auth/login">Log in</a>
+  <a class="btn-1" href="/auth/signup">Sign up</a>
+  </div>
+
+  {{else}}
+  <a class="btn-1" href="/auth/logout">Log out</a>
+  {{/unless}}
+
+  </div>
+</div>
 
