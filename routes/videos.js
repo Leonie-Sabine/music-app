@@ -13,14 +13,11 @@ function getId(url) {
     : null;
 }; 
   
-router.get('/auth/myvideos', loginCheck(), (req, res) => {
-  res.render('auth/myvideos');
-}); 
-
-
 
  router.get('/auth/form', loginCheck(), (req, res) => {
   res.render('auth/form');
+
+
 }); 
 
 
@@ -71,7 +68,18 @@ router.get('/videos', (req, res) => {
   })
 });
 
+router.get('/auth/myvideos', loginCheck(), (req, res) => {
+  
+  Video.findOne({'owner': req.session.passport.user})
+  .then(ownedVideos => {
+    console.log(ownedVideos)
+    const myVideo = getId(ownedVideos.link)
+    res.render('auth/myvideos', {myVideo: "//www.youtube.com/embed/" + myVideo});
 
+  }).catch(err => {
+    console.log(err);
+  })
+}); 
 
 /*
 router.get('/videos/:id', (req, res) => {
