@@ -19,6 +19,8 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 
 
 
+
+
  router.get('/auth/form', loginCheck(), (req, res) => {
   res.render('auth/form');
 }); 
@@ -41,12 +43,13 @@ router.post('/', (req, res, next) => {
 
 
 
-router.get("/rating", (req, res, next) => {
+router.get("/like", (req, res, next) => {
 
    Video.findById(req.params.id)
+
    .then(video =>
-    { //res.render("auth/videos", { video});
-    req.params.rating = req.params.rating + 1;
+    { //res.render("auth/videos", { video}); 
+    req.params.rating = + 1;
   }) 
   .catch(err => {
     next(err);
@@ -56,10 +59,12 @@ router.get("/rating", (req, res, next) => {
 
 
 
+
+
 router.get('/videos', (req, res) => {
  
   Video.find().then(videos => {
-   console.log(videos); 
+   //console.log(videos); 
     let arrlinks = videos.map(video => {
      return video.link;
      } )
