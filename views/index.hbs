@@ -5,11 +5,13 @@
     {{#if user}}
     <h1>Welcome! ✨</h1>
 
-    <a class="btn-1" href="/videos"> ➡ Random videos</a>
+    <img class="img-1" src='/images/youtube-icon.png'>
 
-  
+
+    <div class='index-btn'>
+    <a class="btn-1" href="/videos">  Random videos</a>
     <a class="btn-1" href="/auth/myvideos"> My Videos</a>
-
+    </div>
 
     
     {{/if}} 
@@ -18,17 +20,17 @@
 
   {{#unless user}}
   <h1>Welcome! ✨</h1>
+  <h3>Login or Sign-Up to discover a new 
+    <br>music Video by a new artist.</h3>
 
+  <div>
   <br> 
-  <br>
   <a class="btn-1" href="/auth/login">Log in</a>
-  <br> 
-  <br>
   <a class="btn-1" href="/auth/signup">Sign up</a>
+  </div>
+
   {{else}}
-  <br>
   <a class="btn-1" href="/auth/logout">Log out</a>
-  <br>
   {{/unless}}
 
   </div>

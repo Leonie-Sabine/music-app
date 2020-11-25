@@ -23,6 +23,9 @@ a {
   align-items: center;
   align-content: center; }
 
+.index-btn {
+  margin: 30px; }
+
 .btn {
   background-color: #9F84DB;
   border-radius: 5px;
@@ -70,5 +73,8 @@ label {
 .sign-up-class {
   text-align: center;
   padding: 10px; }
+
+.img-1 {
+  width: 60%; }
 
 /*# sourceMappingURL=style.css.map */
