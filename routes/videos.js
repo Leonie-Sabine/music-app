@@ -60,7 +60,7 @@ router.get('/videos', (req, res) => {
     const randomIndex = Math.floor(Math.random() * videos.length);
    
     let randomVideo = videos[randomIndex];
-     console.log(randomVideo); 
+    //  console.log(randomVideo); 
      const embeddedVideo = "//www.youtube.com/embed/" + getId(randomVideo.link); 
     // const embeddedVideo = getId(arrlinks[randomIndex]);
     res.render('videos', { randomVideo, embeddedVideo })
@@ -104,16 +104,46 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 //     })
 
 
+router.post('/clicked/:id' , (req, res) => {
+ const videoId = req.params.id
+
+ Video.findByIdAndUpdate(videoId , 'rating')
+ .then( (rating) => {
+   rating = Number(rating +1)
+   console.log(rating)
+  
+  //  video.rating = video.rating + 1  
+   res.status(204).send()
+ }).catch(err => console.log(err))
+
+})
+
+
+
+
+// router.post('/clicked/:id' , (req, res) => {
+//   const videoId = req.params.id
+ 
+//   Video.findByIdAndUpdate(videoId , {'rating' : 1 })
+//   .then( (video) => {
+   
+//     console.log(  )
+//    //  video.rating = video.rating + 1  
+//     res.status(204).send()
+//   }).catch(err => console.log(err))
+ 
+//  })
+
 
 // router.post('/clicked', (req, res) => {
 //   const click = {clickTime: new Date()};
 //   console.log(click);
 //   console.log(req.params._id);
 // // const query = { _id: req.params.id };
-  // // console.log('before if', query);
-  // if (req.user.role !== 'admin') {
-  //   video.id = req.video._id;
-  // }
+//   // console.log('before if', query);
+//   if (req.user.role !== 'admin') {
+//     video.id = req.video._id;
+//   }
 
   //Video.findByIdAndUpdate().then(video => {
    
