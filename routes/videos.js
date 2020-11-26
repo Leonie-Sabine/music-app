@@ -83,6 +83,29 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
   })
 }); 
 
+router.post('/clicked', (req, res) => {
+  const click = {clickTime: new Date()};
+  console.log(click);
+
+  Video.find().then(videos => {
+   
+    let arrlinks = videos.map(video => {
+       video.rating = video.rating + 1; 
+       console.log(video.rating); 
+
+    })
+  });
+
+  /* Video.collection('clicks').save(click, (err, result) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('click added to db');
+    res.sendStatus(201);
+  }); */ 
+    
+});
+
 
 // router.get('/auth/myvideos', loginCheck(), (req, res) => {
   
