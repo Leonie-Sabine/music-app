@@ -56,17 +56,20 @@ router.get("/rating", (req, res, next) => {
 router.get('/videos', (req, res) => {
  
   Video.find().then(videos => {
+    
+    const randomIndex = Math.floor(Math.random() * videos.length);
    
-    let arrlinks = videos.map(video => {
-     return video.link;
-     } )
-    const randomIndex = Math.floor(Math.random() * arrlinks.length);
-    const embeddedVideo = getId(arrlinks[randomIndex]);
-    res.render('videos', { videoList: videos, randomlink:  "//www.youtube.com/embed/" + embeddedVideo })
+    let randomVideo = videos[randomIndex];
+     console.log(randomVideo); 
+     const embeddedVideo = "//www.youtube.com/embed/" + getId(randomVideo.link); 
+    // const embeddedVideo = getId(arrlinks[randomIndex]);
+    res.render('videos', { randomVideo, embeddedVideo })
   }).catch(err => {
     console.log(err);
   })
 });
+
+
 
 router.get('/auth/myvideos', loginCheck(), (req, res) => {
   Video.find()
@@ -83,18 +86,61 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
   })
 }); 
 
-router.post('/clicked', (req, res) => {
-  const click = {clickTime: new Date()};
-  console.log(click);
 
-  Video.find().then(videos => {
+// router.get('/:id', (req, res) => {
+ 
+//   const query = { _id: req.params.id };
+//   // console.log('before if', query);
+//   if (req.user.role !== 'admin') {
+//     query.owner = req.user._id
+//   }
+//   // console.log('after if', query);
+//   Room.findOneAndDelete(query)
+//     .then(() => {
+//       res.redirect('/rooms')
+//     })
+//     .catch(err => {
+//       next(err);
+//     })
+
+
+
+// router.post('/clicked', (req, res) => {
+//   const click = {clickTime: new Date()};
+//   console.log(click);
+//   console.log(req.params._id);
+// // const query = { _id: req.params.id };
+  // // console.log('before if', query);
+  // if (req.user.role !== 'admin') {
+  //   video.id = req.video._id;
+  // }
+
+  //Video.findByIdAndUpdate().then(video => {
    
-    let arrlinks = videos.map(video => {
-       video.rating = video.rating + 1; 
-       console.log(video.rating); 
+    //let arrRatings = videos.map(video => {
+   //video.rating = video.rating + 1; 
+    //console.log(video.rating); 
 
-    })
-  });
+       //console.log(req.video._id);
+
+       // console.log("req" + req.params.videoId);
+      // console.log("req.id" + req.params.video.id);
+
+
+      //  const { user, comments } = req.body; 
+      //   // add user and comments to the review array of the book  
+      //   Video.update({ _id: req.params.videoId }, 
+      //     { $push: { reviews: { user, comments } } })    
+      //     .then(() => 
+      //     {      res.redirect('/books')    })  
+      //       .catch(err => 
+      //         {      console.log(err);    })});
+
+   
+    //})
+  //});
+
+
 
   /* Video.collection('clicks').save(click, (err, result) => {
     if (err) {
@@ -104,7 +150,7 @@ router.post('/clicked', (req, res) => {
     res.sendStatus(201);
   }); */ 
     
-});
+// });
 
 
 // router.get('/auth/myvideos', loginCheck(), (req, res) => {
