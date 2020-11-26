@@ -4,9 +4,6 @@ body {
   font-size: 16px;
   background: white; }
 
-a {
-  color: #00B7FF; }
-
 h4 {
   font-weight: lighter;
   text-align: justify;
@@ -121,5 +118,26 @@ nav {
 
 .myButton {
   text-decoration: none; }
+
+.delete {
+  background-color: #856c97;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 10px; }
+
+.delete:hover {
+  background-color: #715f7c; }
+
+.under-video {
+  display: flex;
+  align-items: row;
+  align-content: space-between;
+  justify-content: center;
+  margin: 10px; }
 
 /*# sourceMappingURL=style.css.map */
