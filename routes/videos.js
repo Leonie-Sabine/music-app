@@ -87,6 +87,9 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 }); 
 
 
+
+
+
 // router.get('/:id', (req, res) => {
  
 //   const query = { _id: req.params.id };
@@ -107,13 +110,13 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 router.post('/clicked/:id' , (req, res) => {
  const videoId = req.params.id
 
- Video.findByIdAndUpdate(videoId , 'rating')
- .then( (rating) => {
-   rating = Number(rating +1)
-   console.log(rating)
+ Video.findByIdAndUpdate(videoId , { 'rating' : 1  } )
+ .then( (video) => {
+//    rating = Number(rating +1)
+   console.log(video);
   
   //  video.rating = video.rating + 1  
-   res.status(204).send()
+//    res.status(204).send()
  }).catch(err => console.log(err))
 
 })
