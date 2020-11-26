@@ -1,5 +1,4 @@
-
-  <nav class='nav'>
+ <nav class='nav'>
      <a class="nav-1" href="/videos"> Random videos</a>
      <a class="nav-1" href="/auth/myvideos">My Videos</a>
      <a class="nav-1" href="/auth/form">Add a Video</a>
@@ -14,11 +13,13 @@
 {{#each ownedVideos}}
   <iframe width="560" height="315" src="{{link}}" 
   frameborder="0" allowfullscreen></iframe>
+  <div class="under-video">
   <h3> 🤍 Rating: {{rating}} likes </h3>
-
-  <a href="/auth/myvideos/{{_id}}"><h3> Delete Video  </h3> </a>
-
-
+  <a class="delete" href="/auth/myvideos/{{_id}}">Delete Video</a>
+  </div>
+  <br>
+<br>
+<br>
 {{/each}}
 </div>
 
@@ -27,4 +28,3 @@
 <a class="btn-1" href="/videos">Random videos</a>
 
 </div>
-
