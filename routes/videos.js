@@ -86,21 +86,25 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
   })
 }); 
 
-// router.get('/:id', (req, res) => {
+
+router.get('/auth/myvideos/:id', (req, res) => {
  
-//   const query = { _id: req.params.id };
+const query = { _id: req.params.id };
 //   // console.log('before if', query);
 //   if (req.user.role !== 'admin') {
 //     query.owner = req.user._id
 //   }
 //   // console.log('after if', query);
-//   Room.findOneAndDelete(query)
-//     .then(() => {
-//       res.redirect('/rooms')
-//     })
-//     .catch(err => {
-//       next(err);
-//     })
+Video.findOneAndDelete(query)
+    .then(() => {
+      res.redirect('/auth/myvideos')
+    })
+    .catch(err => {
+      next(err);
+    })
+  });
+
+
 
 router.post('/clicked/:id' , (req, res) => {
  const videoId = req.params.id
