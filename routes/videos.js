@@ -60,7 +60,7 @@ router.get('/videos', (req, res) => {
     const randomIndex = Math.floor(Math.random() * videos.length);
    
     let randomVideo = videos[randomIndex];
-     console.log(randomVideo); 
+    //  console.log(randomVideo); 
      const embeddedVideo = "//www.youtube.com/embed/" + getId(randomVideo.link); 
     // const embeddedVideo = getId(arrlinks[randomIndex]);
     res.render('videos', { randomVideo, embeddedVideo })
@@ -86,7 +86,6 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
   })
 }); 
 
-
 // router.get('/:id', (req, res) => {
  
 //   const query = { _id: req.params.id };
@@ -103,6 +102,33 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 //       next(err);
 //     })
 
+router.post('/clicked/:id' , (req, res) => {
+ const videoId = req.params.id
+
+ Video.findByIdAndUpdate(videoId , { $inc: {'rating' : 1} })
+ .then( () => {
+     res.status(204).send()
+ }).catch(err => console.log(err))
+
+})
+
+
+
+
+
+
+// router.post('/clicked/:id' , (req, res) => {
+//   const videoId = req.params.id
+ 
+//   Video.findByIdAndUpdate(videoId , {'rating' : 1 })
+//   .then( (video) => {
+   
+//     console.log(  )
+//    //  video.rating = video.rating + 1  
+//     res.status(204).send()
+//   }).catch(err => console.log(err))
+ 
+//  })
 
 
 // router.post('/clicked', (req, res) => {
@@ -110,10 +136,10 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 //   console.log(click);
 //   console.log(req.params._id);
 // // const query = { _id: req.params.id };
-  // // console.log('before if', query);
-  // if (req.user.role !== 'admin') {
-  //   video.id = req.video._id;
-  // }
+//   // console.log('before if', query);
+//   if (req.user.role !== 'admin') {
+//     video.id = req.video._id;
+//   }
 
   //Video.findByIdAndUpdate().then(video => {
    
@@ -142,28 +168,7 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 
 
 
-  /* Video.collection('clicks').save(click, (err, result) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log('click added to db');
-    res.sendStatus(201);
-  }); */ 
-    
-// });
 
-
-// router.get('/auth/myvideos', loginCheck(), (req, res) => {
-  
-//   Video.findOne({'owner': req.session.passport.user})
-//   .then(ownedVideos => {
-//     console.log(ownedVideos)
-//     
-
-//   }).catch(err => {
-//     console.log(err);
-//   })
-// }); 
 
 
 module.exports = router;

@@ -3,6 +3,8 @@
      <a class="nav-1" href="/videos"> Random videos</a>
      <a class="nav-1" href="/auth/myvideos">My Videos</a>
      <a class="nav-1" href="/auth/form">Add a Video</a>
+     <a class="nav-1" href="/auth/logout">Log Out</a>
+
 </nav>
 
 <div class="container">
@@ -12,8 +14,10 @@
 {{#each ownedVideos}}
   <iframe width="560" height="315" src="{{link}}" 
   frameborder="0" allowfullscreen></iframe>
-  <h3>🤍 Rating: '0'</h3>
-  <br>
+  <h3> 🤍 Rating: {{rating}} likes </h3>
+
+  <h3> Delete Video  </h3>
+
 {{/each}}
 </div>
 
