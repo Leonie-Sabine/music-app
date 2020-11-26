@@ -78,7 +78,7 @@ router.get(
 router.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: './videos',
+    successRedirect: '/videos',
     failureRedirect: '/auth/login',
     passReqToCallback: true
   })
@@ -118,7 +118,7 @@ router.post('/signup', (req, res, next) => {
             if (err) {
               next(err);
             } else {
-              res.redirect('./videos');
+              res.redirect('/videos');
             }
           })
         })
