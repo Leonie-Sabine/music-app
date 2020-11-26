@@ -67,7 +67,7 @@ router.get(
 
     successRedirect: "/",
 
-    failureRedirect: "/login" // here you would redirect to the login page using traditional login approach
+    failureRedirect: "/auth/login" // here you would redirect to the login page using traditional login approach
 
   })
 
@@ -78,7 +78,7 @@ router.get(
 router.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/videos',
     failureRedirect: '/auth/login',
     passReqToCallback: true
   })
@@ -118,7 +118,7 @@ router.post('/signup', (req, res, next) => {
             if (err) {
               next(err);
             } else {
-              res.redirect('/');
+              res.redirect('/videos');
             }
           })
         })
