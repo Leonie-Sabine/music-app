@@ -13,14 +13,11 @@ function getId(url) {
     : null;
 }; 
   
-router.get('/auth/myvideos', loginCheck(), (req, res) => {
-  res.render('auth/myvideos');
-}); 
-
-
 
  router.get('/auth/form', loginCheck(), (req, res) => {
   res.render('auth/form');
+
+
 }); 
 
 
@@ -59,7 +56,7 @@ router.get("/rating", (req, res, next) => {
 router.get('/videos', (req, res) => {
  
   Video.find().then(videos => {
-   console.log(videos); 
+   
     let arrlinks = videos.map(video => {
      return video.link;
      } )
@@ -71,43 +68,33 @@ router.get('/videos', (req, res) => {
   })
 });
 
+router.get('/auth/myvideos', loginCheck(), (req, res) => {
+  Video.find()
+  .then(videos => {
+    const ownedVideos = videos.filter(video => {
+      return video.owner == req.session.passport.user
+    })
+    ownedVideos.forEach(item => {
+      item.link = "//www.youtube.com/embed/" + getId(item.link)
+    })
+    res.render('auth/myvideos', {ownedVideos})
+  }).catch(err => {
+    console.log(err);
+  })
+}); 
 
 
-/*
-router.get('/videos/:id', (req, res) => {
-  const videoId = req.params.id;
-  // find the book with that id
-  Video.findById(videoId)
-    .then(video => {
-      // render the view
-      console.log(video);
-      res.render('videoDetails', { videoDetails: video })
-    })
-    .catch(err => {
-      console.log(err);
-    })
-})
-*/ 
+// router.get('/auth/myvideos', loginCheck(), (req, res) => {
+  
+//   Video.findOne({'owner': req.session.passport.user})
+//   .then(ownedVideos => {
+//     console.log(ownedVideos)
+//     
 
+//   }).catch(err => {
+//     console.log(err);
+//   })
+// }); 
 
-/*
-// get videos? 
-router.get('/:id', (req, res) => {
-  // an admin can delete any room 
-  // a user can only delete a room that they created  
-  const query = { _id: req.params.id };
-  // console.log('before if', query);
-  if (req.user.role !== 'admin') {
-    query.owner = req.user._id
-  }
-  // console.log('after if', query);
-  Room.findOneAndDelete(query)
-    .then(() => {
-      res.redirect('/rooms')
-    })
-    .catch(err => {
-      next(err);
-    })
-}) */ 
 
 module.exports = router;
