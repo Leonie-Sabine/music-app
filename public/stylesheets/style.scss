@@ -8,7 +8,6 @@ body {
 }
 
 
-
 a {
   color: #00B7FF;
 }
@@ -61,6 +60,7 @@ h4 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: 10px;
   }
 
   .btn:hover {
@@ -117,7 +117,6 @@ padding: 10px;
 }
 
 
-
 nav {
   display: flex;
   align-items: row;
@@ -147,4 +146,16 @@ nav {
   align-items: center;
   align-content: center;
   padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  align-items: row;
+  align-content: space-between;
+  justify-content: center;
+  margin: auto;
+}
+
+.myButton {
+  text-decoration: none;
 }

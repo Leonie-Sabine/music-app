@@ -2,29 +2,28 @@
      <a class="nav-1" href="/videos"> Random videos</a>
      <a class="nav-1" href="/auth/myvideos">My Videos</a>
      <a class="nav-1" href="/auth/form">Add a Video</a>
+     <a class="nav-1" href="/auth/logout">Log Out</a>
 </nav>
 
  <div class="container">
 <h1>Check out this Video! 😍</h1>
- <div class="video">
-    <iframe width="560" height="315" src="{{embeddedVideo}}" 
-  frameborder="0" allowfullscreen></iframe>
 
+ <div class="video">
+  <iframe width="560" height="315" src="{{embeddedVideo}}" 
+  frameborder="0" allowfullscreen></iframe>
 </div>
 
 <div class="buttons">
- <a href="" class="btn">👎 next</a> 
+<a href="" class="btn">👎 next</a> 
 
 <form action="/clicked/{{randomVideo._id}}" method="POST">
- <button class="btn" id="myButton">👍 like</button> 
+<button class="btn" id="myButton">👍 like</button> 
 </form>
 
 </div>
 <br>
 <br>
 <a class="btn-1" href="/auth/form">Add a Video</a>
-
-
 
 </div>
 

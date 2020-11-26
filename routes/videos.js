@@ -86,7 +86,6 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
   })
 }); 
 
-
 // router.get('/:id', (req, res) => {
  
 //   const query = { _id: req.params.id };
@@ -103,17 +102,12 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 //       next(err);
 //     })
 
-
 router.post('/clicked/:id' , (req, res) => {
  const videoId = req.params.id
 
- Video.findByIdAndUpdate(videoId , 'rating')
- .then( (rating) => {
-   rating = Number(rating +1)
-   console.log(rating)
-  
-  //  video.rating = video.rating + 1  
-   res.status(204).send()
+ Video.findByIdAndUpdate(videoId , { $inc: {'rating' : 1} })
+ .then( () => {
+     res.status(204).send()
  }).catch(err => console.log(err))
 
 })
@@ -172,28 +166,7 @@ router.post('/clicked/:id' , (req, res) => {
 
 
 
-  /* Video.collection('clicks').save(click, (err, result) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log('click added to db');
-    res.sendStatus(201);
-  }); */ 
-    
-// });
 
-
-// router.get('/auth/myvideos', loginCheck(), (req, res) => {
-  
-//   Video.findOne({'owner': req.session.passport.user})
-//   .then(ownedVideos => {
-//     console.log(ownedVideos)
-//     
-
-//   }).catch(err => {
-//     console.log(err);
-//   })
-// }); 
 
 
 module.exports = router;
