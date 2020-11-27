@@ -16,9 +16,21 @@
 <div class="buttons">
 <a href="" class="btn">👎 next</a> 
 
+
+    {{#unless clicked}}
+  
 <form action="/clicked/{{randomVideo._id}}" method="POST">
-<button class="btn" id="myButton">👍 like</button> 
+<button class="btn" id="myButton">👍 like</button>
 </form>
+
+  {{/unless}}
+
+{{#if clicked}}
+
+Thank you 
+
+  {{/if}}
+
 
 </div>
 <br>

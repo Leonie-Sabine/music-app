@@ -110,8 +110,8 @@ router.post('/clicked/:id' , (req, res) => {
  const videoId = req.params.id
 
  Video.findByIdAndUpdate(videoId , { $inc: {'rating' : 1} })
- .then( () => {
-     res.status(204).send()
+ .then(clicked => {
+     res.send()
  }).catch(err => console.log(err))
 
 })
