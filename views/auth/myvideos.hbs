@@ -9,6 +9,9 @@
 <div class="container">
 <h1>My Videos</h1>
 
+
+{{#if ownedVideos}}
+
  <div class="video">
 {{#each ownedVideos}}
   <iframe width="560" height="315" src="{{link}}" 
@@ -23,7 +26,16 @@
 {{/each}}
 </div>
 
+{{/if}}
 
+
+{{#unless ownedVideos}}
+
+You have no shared videos yet.
+
+<a class="btn-1" href="/auth/form">Add a Video</a>
+
+{{/unless}}
 
 <a class="btn-1" href="/videos">Random videos</a>
 
