@@ -89,6 +89,9 @@ router.get('/auth/myvideos', loginCheck(), (req, res) => {
 
 router.get('/auth/myvideos/:id', (req, res) => {
  
+
+
+
 const query = { _id: req.params.id };
 //   // console.log('before if', query);
 //   if (req.user.role !== 'admin') {
@@ -97,7 +100,9 @@ const query = { _id: req.params.id };
 //   // console.log('after if', query);
 Video.findOneAndDelete(query)
     .then(() => {
-      res.redirect('/auth/myvideos')
+      res.redirect('/auth/myvideos'); 
+      
+      
     })
     .catch(err => {
       next(err);
@@ -111,7 +116,8 @@ router.post('/clicked/:id' , (req, res) => {
 
  Video.findByIdAndUpdate(videoId , { $inc: {'rating' : 1} })
  .then( () => {
-     res.status(204).send()
+     res.status(204).send();  
+     
  }).catch(err => console.log(err))
 
 })

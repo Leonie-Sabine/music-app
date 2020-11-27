@@ -122,4 +122,7 @@ nav {
 .myButton {
   text-decoration: none; }
 
+#myButton:active {
+  background-color: blue; }
+
 /*# sourceMappingURL=style.css.map */
